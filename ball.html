@@ -40,13 +40,13 @@ function drawBall() {
 
 function drawPlayer1() {
 	ctx.font = '24px Arial';
-	ctx.fillText(player1, 370, 20);
+	ctx.fillText('Player one: ' + player1, 200, 20);
 	ctx.fill();
 }
 
 function drawPlayer2() {
 	ctx.font = '24px Arial';
-	ctx.fillText(player2, 430, 20);
+	ctx.fillText('Player two: ' + player2, 500, 20);
 	ctx.fill();
 }
 
@@ -88,11 +88,11 @@ function draw() {
     x += dx;
     y += dy;
 	
-	if (player1 == 3) {
+	if (player1 == 7) {
 	alert('player 1 has won');
 	}
 
-	if(player2 == 3) {
+	if(player2 == 7) {
 	alert('player 2 has won');
 	}
 }
