@@ -9,7 +9,7 @@
     </style>
 </head>
     <body>
-      <canvas id="myCanvas" width="844" height="640"></canvas>
+      <canvas id="myCanvas" width="1100" height="640"></canvas>
 
       <script>
         var canvas = document.getElementById("myCanvas");
@@ -126,7 +126,7 @@
       	paddle1();
         paddle2();
 
-        if (x + dx > (canvas.width - ballRadius) - paddleWidth) {
+        if (x + dx > (canvas.width - ballRadius) - paddleWidth * 2) {
           if(y > paddleY && y < paddleY + paddleHeight){
             dx = -dx
           }
