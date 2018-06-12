@@ -22,6 +22,38 @@
 	var dy = -3;
 	var player1 = 0;
 	var player2 = 0;
+	var paddleHeight = 100;
+	var paddleWidth = 20;
+	var upPressed = false;
+	var downPressed = false;
+	var paddleY = (canvas.height-paddleHeight)/2;
+	
+	document.addEventListener("keydown", keyDownHandler, false);
+	document.addEventListener("keyup", keyUpHandler,false);
+
+	function keyDownHandler(e) {
+	if(e.keyCode == 38) {
+	upPressed = true;
+	}else if(e.keyCode == 40){
+	downPressed = true;
+	}
+}
+
+	function keyUpHandler(e) {
+	if(e.keyCode == 38) {
+	upPressed = false;
+	}else if(e.keyCode == 40) {
+	downPressed = false;
+	}
+}
+
+function paddle1() {
+ctx.beginPath();
+ctx.rect(canvas.width-(paddleWidth *2), paddleY, paddleWidth, paddleHeight);
+ctx.fillStyle = "#0095DD";
+ctx.fill();	
+ctx.closePath();
+}
 	
 if (status % 2 == 0){
 	dx = dx;
@@ -55,6 +87,7 @@ function draw() {
     drawBall();
 	drawPlayer1();
 	drawPlayer2();
+	paddle1();
     
 	if (x + dx < ballRadius) {
 		status++;
@@ -94,6 +127,12 @@ function draw() {
 
 	if(player2 == 7) {
 	alert('player 2 has won');
+	}
+	
+	if(upPressed && paddleY > 0) {
+		paddleY -= 7;
+	}else if(downPressed && paddleY < canvas.height-paddleHeight) {
+		paddleY += 7;
 	}
 }
 
