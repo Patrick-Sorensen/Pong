@@ -4,7 +4,7 @@ var ctx = canvas.getContext("2d");
 // Ingnore above this line
 
 
-//Varibale below
+//Varibales below
 var paddleHeight = 100;
 var paddleWidth = 20;
 var upPressed = false;
@@ -16,19 +16,19 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler,false);
 
 function keyDownHandler(e) {
-if(e.keycode == 38) {
+if(e.keyCode == 38) {
 upPressed = true;
 }
-else if(e.keycode == 40){
+else if(e.keyCode == 40){
 downPressed = true;
 }
 }
 
 function keyUpHandler(e) {
-if(e.keycode == 38) {
+if(e.keyCode == 38) {
 upPressed = false;
 }
-else if(e.keycode == 40) {
+else if(e.keyCode == 40) {
 downPressed = false;
 }
 }
@@ -48,10 +48,10 @@ paddle1();
 
 
 if(upPressed && paddleY > 0) {
-paddleY += 7;
+paddleY -= 7;
 }
 else if(downPressed && paddleY < canvas.height-paddleHeight) {
-paddleY -= 7;
+paddleY += 7;
 }
 }
 // Draw function (draw) above
