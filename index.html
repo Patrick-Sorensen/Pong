@@ -9,8 +9,7 @@
     </style>
 </head>
     <body>
-      <canvas id="myCanvas" width="1100" height="640"></canvas>
-
+    <canvas id="myCanvas" width="1100" height="640"></canvas>
       <script>
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
@@ -30,8 +29,7 @@
         var upPressedTwo = false;
         var downPressedTwo = false;
         var paddleYTwo = (canvas.height-paddleHeight)/2;
-
-
+		
       	document.addEventListener("keydown", keyDownHandler, false);
       	document.addEventListener("keyup", keyUpHandler,false);
         document.addEventListener("keydown", keyDownHandlerTwo, false);
@@ -128,11 +126,15 @@
 
         if (x + dx > (canvas.width - ballRadius) - paddleWidth * 2) {
           if(y > paddleY && y < paddleY + paddleHeight){
+			x = canvas.width-(paddleWidth *2) - 3;
+			dx = dx + 0.02;
             dx = -dx
           }
         }
         else if (x + dx < paddleWidth * 2){
           if(y > paddleYTwo && y < paddleYTwo + paddleHeight){
+			x = paddleWidth * 2 + 3;
+			dx = dx + 0.02;
             dx = -dx;
           }
         }
